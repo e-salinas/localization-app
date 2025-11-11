@@ -9,40 +9,65 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
+    fallbackLng: 'en',
     backend: {
-      loadPath: "/locales/{{lng}}/main.json"
-    }
+      loadPath: '/locales/{{lng}}/main.json',
+    },
+    interpolation: {
+      escapeValue: false,
+    },
   });
 
-
 function App() {
-
   const { t } = useTranslation();
-  const [language, setLanguage] = useState("English");
+  const [language, setLanguage] = useState('English');
+  const [sessionActive, setSessionActive] = useState(false);
 
   const onChange = (event) => {
-    i18n.changeLanguage(event.target.value);
-    setLanguage((language) => language === "English" ? "Spanish": "English");
-  }
+    const selectedLang = event.target.value;
+    i18n.changeLanguage(selectedLang);
+    setLanguage(selectedLang === 'en' ? 'English' : 'Spanish');
+  };
+
+  const handleStart = () => {
+    setSessionActive(true);
+  };
+
+  const handleEnd = () => {
+    setSessionActive(false);
+  };
 
   return (
     <Suspense fallback="Loading...">
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>{t("welcome")}</h1>
-          <p>{t("message1")}</p>
-          <p></p>
-          <p></p>
-          <p id="language-text">The language is currently set to <strong>{language}</strong>.</p>
+          <h1>{t('welcomeMessage')}</h1>
+          <p>{t('introText')}</p>
+
+          <div style={{ margin: '20px' }}>
+            {!sessionActive ? (
+              <button onClick={handleStart}>{t('startButton')}</button>
+            ) : (
+              <button onClick={handleEnd}>{t('endButton')}</button>
+            )}
+          </div>
+
+          <p id="session-status">
+            {sessionActive ? t('sessionActive') : t('sessionInactive')}
+          </p>
+
+          <p id="language-text">
+            {t('languageStatus')} <strong>{language}</strong>.
+          </p>
+
           <select name="language" onChange={onChange}>
             <option value="en">English</option>
             <option value="es">Spanish</option>
           </select>
         </header>
       </div>
-  </Suspense>
+    </Suspense>
   );
 }
 
