@@ -6,6 +6,6 @@
   "sessionActive": "The session is currently active.",
   "sessionInactive": "No session is active.",
   "languageStatus": "The language is currently set to",
-  "english": "English",
-  "spanish": "Spanish"
+  "en": "English",
+  "es": "Spanish"
 }
