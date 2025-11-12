@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+# Localization Demo Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project demonstrates practical experience with localization workflows, translation management systems, and continuous localization through automated integrations. Built as a React application using Create React App as the foundation, it showcases the complete localization pipeline from development to deployment.
 
-In the project directory, you can run:
+## Purpose
 
-### `npm start`
+This project demonstrates practical experience with modern localization workflows, including translation management systems, continuous localization pipelines, and internationalization implementation in web applications.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Localization Stack
+- **Crowdin** - Localization and translation management platform
+- **i18next** - Internationalization framework
+- **react-i18next** - React bindings for i18next
+- **i18next-http-backend** - Dynamic translation file loading via HTTP
 
-### `npm test`
+### Development Stack
+- **React** - Frontend framework
+- **Create React App** - React application bootstrapping tool
+- **JavaScript/JSX** - Programming language with JSX syntax for component rendering
+- **Visual Studio Code** - IDE for development
+- **npm** - Package management
+- **GitHub** - Version control and repository hosting
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+```
+localization-app/
+├── public/
+│   └── locales/
+│       ├── en/
+│       │   └── main.json          # Source English strings (source language)
+│       └── es/                     # Spanish translations (synced from Crowdin)
+│           └── main.json
+├── src/
+│   ├── App.js                      # Main application with i18n implementation
+│   └── App.css
+├── crowdin.yml                     # Crowdin configuration file
+└── package.json
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Localization Workflow
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Source File Management
+- English source strings are maintained in `/public/locales/en/main.json`
+- Translation keys follow consistent naming conventions
+- JSON format ensures compatibility with translation tools
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Continuous Localization Pipeline
 
-### `npm run eject`
+```
+Developer updates source → Push to GitHub → Crowdin auto-syncs → 
+Translators work in Crowdin → Crowdin creates PR → Review & merge → 
+Translations deployed
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. GitHub Integration
+- **Automated sync**: Source files automatically sync from GitHub to Crowdin
+- **Pull request workflow**: Completed translations return via automated PRs
+- **Version control**: All translation updates are tracked in git history
+- **Configuration**: `crowdin.yml` defines file patterns and translation paths
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Translation Management
+- Centralized translation interface for linguists
+- Translation memory and terminology management
+- Quality assurance checks
+- Support for multiple target languages
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Key Features Demonstrated
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Internationalization Implementation
+```jsx
+// JSX syntax with embedded translation calls
+<h1>{t("welcome")}!</h1>
+<p>{t("message1")}</p>
 
-## Learn More
+// Dynamic language switching with event handlers
+const onChange = (event) => {
+  i18n.changeLanguage(event.target.value);
+  setLanguage(language === "English" ? "Spanish" : "English");
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+// Translation keys embedded in JSX elements
+<select name="language" onChange={onChange}>
+  <option value="en">English</option>
+  <option value="es">Spanish</option>
+</select>
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Dynamic Translation Loading
+The project uses `i18next-http-backend` to load translation files dynamically via HTTP requests rather than bundling them directly into the application:
 
-### Code Splitting
+```javascript
+i18n
+  .use(HttpBackend)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: "en",
+    backend: {
+      loadPath: "/locales/{{lng}}/main.json"
+    }
+  });
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Benefits of this approach:**
+- Smaller initial JavaScript bundle size
+- Translations loaded only when needed (lazy loading)
+- Translation updates possible without rebuilding the application
+- Supports CDN delivery of translation files
+- Seamless integration with Crowdin's automated PR workflow
 
-### Analyzing the Bundle Size
+### Configuration Management
+```yaml
+# crowdin.yml
+files:
+  - source: /public/locales/en/*.json
+    translation: /public/locales/%two_letters_code%/%original_file_name%
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Language Detection & Fallbacks
+- Fallback language configuration (English)
+- Dynamic resource loading via HTTP backend
+- Lazy loading of translation files (only loads languages when needed)
+- Suspense handling for async translation loading
+- Optimized bundle size by separating translations from application code
 
-### Making a Progressive Web App
+## Skills Demonstrated
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Localization & Translation Technology
+- Translation file format handling (JSON)
+- Translation memory and terminology management workflows
+- CAT tool and TMS platform integration
+- String externalization and key management
+- Locale conventions and internationalization standards
 
-### Advanced Configuration
+### Technical Implementation
+- Git/GitHub workflow and version control
+- Configuration management (YAML, JSON)
+- React component internationalization with JSX syntax
+- JavaScript ES6+ (arrow functions, destructuring, hooks)
+- API integration and asynchronous resource loading
+- Automated CI/CD workflows
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Quality & Process
+- Localized application testing and verification
+- Translation context analysis
+- UI/UX considerations across languages
+- Workflow automation and optimization
 
-### Deployment
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project demonstrates practical localization experience with industry-standard tools and workflows.
 
-### `npm run build` fails to minify
+**GitHub Repository**: [https://github.com/e-salinas/localization-app](https://github.com/e-salinas/localization-app)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

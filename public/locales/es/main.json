@@ -1,11 +1,11 @@
 {
-  "welcomeMessage": "Welcome to the multilingual demo!",
-  "introText": "This app shows how to localize buttons and dynamic text with i18next and Crowdin.",
-  "startButton": "Start Session",
-  "endButton": "End Session",
-  "sessionActive": "The session is currently active.",
-  "sessionInactive": "No session is active.",
-  "languageStatus": "The language is currently set to",
-  "english": "English",
-  "spanish": "Spanish"
+  "welcomeMessage": "¡Bienvenido a la demo multilingüe!",
+  "introText": "Esta aplicación muestra cómo localizar botones y texto dinámico con i18next y Crowdin.",
+  "startButton": "Iniciar sesión",
+  "endButton": "Finalizar sesión",
+  "sessionActive": "La sesión está activa.",
+  "sessionInactive": "No hay sesión activa.",
+  "languageStatus": "El idioma está configurado en",
+  "english": "Inglés",
+  "spanish": "Español"
 }
