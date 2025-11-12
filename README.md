@@ -1,8 +1,15 @@
-# Localization Demo Project
+# Localization App Project
 
 ## Overview
 
 This project demonstrates practical experience with localization workflows, translation management systems, and continuous localization through automated integrations. Built as a React application using Create React App as the foundation, it showcases the complete localization pipeline from development to deployment.
+
+## 🎬 Demo
+
+Here’s a preview of the localized React application in action:
+
+![Localization Demo](./media/demo.gif)
+
 
 ## Purpose
 
@@ -32,7 +39,7 @@ localization-app/
 │   └── locales/
 │       ├── en/
 │       │   └── main.json           # Source English strings (source language)
-│       └── es/                     # Spanish translations (approved translation pulled from Crowdin)
+│       └── es/                     # Spanish translations (approved translation from Crowdin)
 │           └── main.json
 ├── src/
 │   ├── App.js                      # Main application with i18n implementation
