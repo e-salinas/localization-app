@@ -3,9 +3,9 @@
   "introText": "Esta aplicación muestra cómo localizar botones y texto dinámico con i18next y Crowdin.",
   "startButton": "Iniciar sesión",
   "endButton": "Finalizar sesión",
-  "sessionActive": "The session is currently active.",
-  "sessionInactive": "No session is active.",
-  "languageStatus": "The language is currently set to",
+  "sessionActive": "La sesión está activa.",
+  "sessionInactive": "No hay sesión activa.",
+  "languageStatus": "El idioma está configurado en",
   "en": "English",
   "es": "Spanish"
 }
