@@ -2,18 +2,14 @@
 
 ## Overview
 
-This project demonstrates practical experience with localization workflows, translation management systems, and continuous localization through automated integrations. Built as a React application using Create React App as the foundation, it showcases the complete localization pipeline from development to deployment.
+This project demonstrates practical experience with modern localization workflows using Crowdin for translation management and continuous localization through automated integrations. Built as a React application using Create React App as the foundation, it showcases the complete localization pipeline from development to deployment.
 
 ## 🎬 Demo
 
 Here’s a preview of the localized React application in action:
 
 ![Localization Demo](./media/demo.gif)
-
-
-## Purpose
-
-This project demonstrates practical experience with modern localization workflows, including translation management systems, continuous localization pipelines, and internationalization implementation in web applications.
+*The interface dynamically switches between English and Spanish using i18next and Crowdin-managed translation files.*
 
 ## Technologies Used
 
@@ -75,6 +71,21 @@ Translations deployed
 - Quality assurance checks
 - Support for multiple target languages
 
+## 🧩 Crowdin Interface Experience
+
+This project included direct interaction with the Crowdin web interface for managing and proofreading translations. The goal was to gain hands-on experience with translation management systems (TMS), machine translation post-editing, and continuous localization workflows.
+
+### Crowdin Screenshots
+
+| Crowdin Section | Description |
+|-----------------|--------------|
+| ![Crowdin Editor](./media/crowdin_editor.png) | Working in the Crowdin Translation Editor to review and edit Spanish translations. |
+| ![Crowdin Dashboard](./media/crowdin_dashboard.png) | Crowdin project dashboard showing translation progress and GitHub integration status. |
+| ![Machine Translation Suggestions](./media/crowdin_sources.png) | Crowdin project sources. |
+
+*These screenshots illustrate use of the Crowdin platform for translation management, post-editing, and synchronization with GitHub.*
+
+
 ## Key Features Demonstrated
 
 ### Internationalization Implementation
@@ -86,7 +97,7 @@ Translations deployed
 // Dynamic language switching with event handlers
 const onChange = (event) => {
   i18n.changeLanguage(event.target.value);
-  setLanguage(language === "English" ? "Spanish" : "English");
+  setLanguage(language === "en" ? "Spanish" : "English");
 }
 
 // Translation keys embedded in JSX elements
@@ -97,7 +108,7 @@ const onChange = (event) => {
 ```
 
 ### Dynamic Translation Loading
-The project uses `i18next-http-backend` to load translation files dynamically via HTTP requests rather than bundling them directly into the application:
+Translations are loaded dynamically via HTTP from local JSON files using `i18next-http-backend`:
 
 ```javascript
 i18n
@@ -147,8 +158,8 @@ files:
 - Configuration management (YAML, JSON)
 - React component internationalization with JSX syntax
 - JavaScript ES6+ (arrow functions, destructuring, hooks)
-- API integration and asynchronous resource loading
-- Automated CI/CD workflows
+- Asynchronous resource loading via local JSON fetch
+- Automated translation sync workflow via Crowdin and GitHub PRs
 
 ### Quality & Process
 - Localized application testing and verification

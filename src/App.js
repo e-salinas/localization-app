@@ -20,11 +20,13 @@ i18n
 
 function App() {
   const { t } = useTranslation();
+  const [language, setLanguage] = useState('English');
   const [sessionActive, setSessionActive] = useState(false);
 
   const onChange = (event) => {
     const selectedLang = event.target.value;
     i18n.changeLanguage(selectedLang);
+    setLanguage(selectedLang === 'en' ? 'English' : '');
   };
 
   const handleStart = () => {
@@ -56,12 +58,12 @@ function App() {
           </p>
 
           <p id="language-text">
-            {t('languageStatus')} <strong>{t(i18n.language)}</strong>.
+            {t('languageStatus')} <strong>{language}</strong>.
           </p>
 
           <select name="language" onChange={onChange}>
-            <option value="en">English</option>
-            <option value="es">Español</option>
+            <option value="en">{t('english')}</option>
+            <option value="es">{t('spanish')}</option>
           </select>
         </header>
       </div>
