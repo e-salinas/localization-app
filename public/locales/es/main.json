@@ -6,6 +6,6 @@
   "sessionActive": "La sesión está activa.",
   "sessionInactive": "No hay sesión activa.",
   "languageStatus": "El idioma está configurado en",
-  "english": "Inglés",
-  "spanish": "Español"
+  "en": "Inglés",
+  "es": "Español"
 }
