@@ -31,8 +31,8 @@ localization-app/
 ├── public/
 │   └── locales/
 │       ├── en/
-│       │   └── main.json          # Source English strings (source language)
-│       └── es/                     # Spanish translations (synced from Crowdin)
+│       │   └── main.json           # Source English strings (source language)
+│       └── es/                     # Spanish translations (approved translation pulled from Crowdin)
 │           └── main.json
 ├── src/
 │   ├── App.js                      # Main application with i18n implementation
