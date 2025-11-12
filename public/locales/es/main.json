@@ -1,4 +1,11 @@
 {
-    "welcome": "Bienvenido",
-    "message1": "Proyecto de localización - demostración"
+  "welcomeMessage": "¡Bienvenido a la demo multilingüe!",
+  "introText": "Esta aplicación muestra cómo localizar botones y texto dinámico con i18next y Crowdin.",
+  "startButton": "Iniciar sesión",
+  "endButton": "Finalizar sesión",
+  "sessionActive": "La sesión está activa.",
+  "sessionInactive": "No hay sesión activa.",
+  "languageStatus": "El idioma está configurado en",
+  "english": "Inglés",
+  "spanish": "Español"
 }

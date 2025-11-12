@@ -5,5 +5,7 @@
   "endButton": "End Session",
   "sessionActive": "The session is currently active.",
   "sessionInactive": "No session is active.",
-  "languageStatus": "The language is currently set to"
+  "languageStatus": "The language is currently set to",
+  "english": "English",
+  "spanish": "Spanish"
 }

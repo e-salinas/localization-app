@@ -62,8 +62,8 @@ function App() {
           </p>
 
           <select name="language" onChange={onChange}>
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
+            <option value="en">{t('english')}</option>
+            <option value="es">{t('spanish')}</option>
           </select>
         </header>
       </div>
