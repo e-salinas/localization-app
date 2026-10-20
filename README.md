@@ -48,30 +48,13 @@ localization-app/
 
 ## Localization Workflow
 
-### 1. Source File Management
-- English source strings are maintained in `/public/locales/en/main.json`
-- Translation keys follow consistent naming conventions
-- JSON format ensures compatibility with translation tools
+The demo stores English source strings and Spanish translations in separate JSON files.
 
-### 2. Continuous Localization Pipeline
+I used Crowdin to review and edit Spanish translations, working with the source text and checking how the translated strings appeared in the demo.
 
-```
-Developer updates source → Push to GitHub → Crowdin auto-syncs → 
-Translators work in Crowdin → Crowdin creates PR → Review & merge → 
-Translations deployed
-```
+The project uses a Crowdin–GitHub integration to connect translation work with the repository. The `crowdin.yml` file identifies the English source files and the destination paths for translations.
 
-### 3. GitHub Integration
-- **Automated sync**: Source files automatically sync from GitHub to Crowdin
-- **Pull request workflow**: Completed translations return via automated PRs
-- **Version control**: All translation updates are tracked in git history
-- **Configuration**: `crowdin.yml` defines file patterns and translation paths
-
-### 4. Translation Management
-- Centralized translation interface for linguists
-- Translation memory and terminology management
-- Quality assurance checks
-- Support for multiple target languages
+This exercise helped me understand how translators work with application strings and how localization updates fit into a version-controlled project.
 
 ## 🧩 Crowdin Interface Experience
 
