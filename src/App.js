@@ -26,7 +26,7 @@ function App() {
   const onChange = (event) => {
     const selectedLang = event.target.value;
     i18n.changeLanguage(selectedLang);
-    setLanguage(selectedLang === 'en' ? 'English' : '');
+    setLanguage(selectedLang === 'en' ? 'English' : 'Español');
   };
 
   const handleStart = () => {
@@ -62,8 +62,8 @@ function App() {
           </p>
 
           <select name="language" onChange={onChange}>
-            <option value="en">{t('english')}</option>
-            <option value="es">{t('spanish')}</option>
+            <option value="en">{t('en')}</option>
+            <option value="es">{t('es')}</option>
           </select>
         </header>
       </div>
