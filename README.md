@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project demonstrates practical experience with modern localization workflows using Crowdin for translation management and continuous localization through automated integrations. Built as a React application using Create React App as the foundation, it showcases the complete localization pipeline from development to deployment.
+I used a small English–Spanish React demo to practice working with Crowdin and a GitHub-based localization workflow.
+
+My focus was managing translation strings, reviewing Spanish translations in context, working with JSON language files, and learning how translation updates move between Crowdin and GitHub. The application provided a way to see those translations in the interface.
 
 ## 🎬 Demo
 
@@ -85,87 +87,14 @@ This project included direct interaction with the Crowdin web interface for mana
 
 *These screenshots illustrate use of the Crowdin platform for translation management, post-editing, and synchronization with GitHub.*
 
+## Skills Practiced
 
-## Key Features Demonstrated
-
-### Internationalization Implementation
-```jsx
-// JSX syntax with embedded translation calls
-<h1>{t("welcome")}!</h1>
-<p>{t("message1")}</p>
-
-// Dynamic language switching with event handlers
-const onChange = (event) => {
-  i18n.changeLanguage(event.target.value);
-  setLanguage(language === "en" ? "Spanish" : "English");
-}
-
-// Translation keys embedded in JSX elements
-<select name="language" onChange={onChange}>
-  <option value="en">English</option>
-  <option value="es">Spanish</option>
-</select>
-```
-
-### Dynamic Translation Loading
-Translations are loaded dynamically via HTTP from local JSON files using `i18next-http-backend`:
-
-```javascript
-i18n
-  .use(HttpBackend)
-  .use(initReactI18next)
-  .init({
-    fallbackLng: "en",
-    backend: {
-      loadPath: "/locales/{{lng}}/main.json"
-    }
-  });
-```
-
-**Benefits of this approach:**
-- Smaller initial JavaScript bundle size
-- Translations loaded only when needed (lazy loading)
-- Translation updates possible without rebuilding the application
-- Supports CDN delivery of translation files
-- Seamless integration with Crowdin's automated PR workflow
-
-### Configuration Management
-```yaml
-# crowdin.yml
-files:
-  - source: /public/locales/en/*.json
-    translation: /public/locales/%two_letters_code%/%original_file_name%
-```
-
-### Language Detection & Fallbacks
-- Fallback language configuration (English)
-- Dynamic resource loading via HTTP backend
-- Lazy loading of translation files (only loads languages when needed)
-- Suspense handling for async translation loading
-- Optimized bundle size by separating translations from application code
-
-## Skills Demonstrated
-
-### Localization & Translation Technology
-- Translation file format handling (JSON)
-- Translation memory and terminology management workflows
-- CAT tool and TMS platform integration
-- String externalization and key management
-- Locale conventions and internationalization standards
-
-### Technical Implementation
-- Git/GitHub workflow and version control
-- Configuration management (YAML, JSON)
-- React component internationalization with JSX syntax
-- JavaScript ES6+ (arrow functions, destructuring, hooks)
-- Asynchronous resource loading via local JSON fetch
-- Automated translation sync workflow via Crowdin and GitHub PRs
-
-### Quality & Process
-- Localized application testing and verification
-- Translation context analysis
-- UI/UX considerations across languages
-- Workflow automation and optimization
+- Working with Crowdin to review and edit Spanish translations
+- Navigating source strings and translated strings in a translation management system
+- Working with English and Spanish JSON language files
+- Understanding how translation keys connect strings to the application interface
+- Reviewing translated text in the running demo
+- Working with the Crowdin–GitHub integration and translation-update workflow
 
 ## Contact
 
